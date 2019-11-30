@@ -7,7 +7,8 @@ module Api
       before_action :authorize_request
 
       def index
-        #
+        @annotations = Annotation.where(user_id: params[:user_id])
+        json_response(@annotations)
       end
 
       def create
