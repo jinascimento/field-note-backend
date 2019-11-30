@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2019_11_30_045738) do
 
   create_table "annotations", force: :cascade do |t|
     t.text "description"
-    t.integer "latitude"
-    t.integer "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
