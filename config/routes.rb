@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/*a', to: 'application#not_found'
 
   api_version(module: 'Api::V1', path: { value: 'api/v1' }) do
+    resources :geolocations
+    resources :annotations
     post '/auth/login', to: 'authentication#login'
   end
 end
