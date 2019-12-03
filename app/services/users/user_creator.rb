@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
-module Annotations
-  class AnnotationCreator
-
+module Users
+  class UserCreator
     def initialize(attributes)
       @attributes = attributes
     end
 
     def call
-      Annotation.create!(@attributes)
+      @user = User.create!(@attributes)
     end
   end
 end

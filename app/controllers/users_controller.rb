@@ -21,14 +21,12 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
-    if @user.save
-      flash[:alert] = "sucesso!"
-      redirect_to root_path
-    else
-      flash[:alert] = "Erro ao criar o usuário!"
-      render :new
-    end
+    @user = Users::UserCreator.new(user_params).call
+    flash[:alert] = "sucesso!"
+    redirect_to root_path
+  rescue => e
+    flash[:alert] = "Erro ao criar o usuário!"
+    render :new
   end
 
   def edit
@@ -36,13 +34,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      flash[:alert] = "sucesso!"
-      redirect_to root_path
-    else
-      flash[:alert] = "Erro ao atualizar usuário!"
-      render :edit
-    end
+    @user = Users::UserUpdater.new(@user, user_params).call
+    flash[:alert] = "sucesso!"
+    redirect_to root_path
+  rescue => e
+    flash[:alert] = "Erro ao atualizar usuário!"
+    render :edit
   end
 
   # DELETE /users/{username}
