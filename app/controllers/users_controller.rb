@@ -1,25 +1,19 @@
 class UsersController < ApplicationController
   protect_from_forgery with: :null_session
-  # before_action :authorize_request, except: :create
   before_action :find_user, except: %i[create index new]
 
-
-  # GET /users
   def index
     @users = User.all
-    # render json: @users, status: :ok
   end
 
-  # GET /users/{username}
   def show
-    # render json: @user, status: :ok
+    #
   end
 
   def new
     @user = User.new
   end
 
-  # POST /users
   def create
     @user = Users::UserCreator.new(user_params).call
     flash[:alert] = "sucesso!"
@@ -42,9 +36,8 @@ class UsersController < ApplicationController
     render :edit
   end
 
-  # DELETE /users/{username}
   def destroy
-    @user.destroy
+    @user = Users::UserDestroyer.new(@user).call
     redirect_to root_path
   end
 
