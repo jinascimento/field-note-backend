@@ -21,8 +21,10 @@ gem 'versionist'
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'factory_bot_rails'
   gem 'pry'
   gem 'pry-nav'
+  gem 'rspec-rails'
 end
 
 group :development do
