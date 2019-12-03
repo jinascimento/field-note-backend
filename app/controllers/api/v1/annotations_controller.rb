@@ -12,8 +12,11 @@ module Api
       end
 
       def create
-        @annotation = Annotation.create!(annotation_params.merge(user_id: @current_user.id))
-        json_response(@annotation, :created)
+        annotation = Annotations::AnnotationCreator.new(
+          annotation_params.merge(user_id: @current_user.id)
+        ).call
+
+        json_response(annotation, :created)
       end
 
       private
