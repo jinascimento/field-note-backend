@@ -7,19 +7,18 @@ module Api
       before_action :authorize_request
 
       def index
-        @annotations = Annotation.where(user_id: params[:user_id])
+        @annotations = Annotation.where(user_id: @current_user.id)
         json_response(@annotations)
       end
 
       def create
-        @annotation = Annotation.create!(annotation_params)
+        @annotation = Annotation.create!(annotation_params.merge(user_id: @current_user.id))
         json_response(@annotation, :created)
       end
 
       private
       def annotation_params
-        params.require(:annotation).permit(:description, :latitude, :longitude,
-                                           :user_id)
+        params.require(:annotation).permit(:description, :latitude, :longitude)
       end
     end
   end

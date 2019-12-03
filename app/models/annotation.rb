@@ -1,5 +1,8 @@
 class Annotation < ApplicationRecord
+  belongs_to :user
 
-  # reverse_geocoded_by :latitude, :longitude
-  # after_validation :reverse_geocode
+  validates :description, presence: true
+  validates :longitude, presence: true
+  validates :latitude, presence: true
+  validates :user, presence: true
 end
