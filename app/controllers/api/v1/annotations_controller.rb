@@ -22,7 +22,7 @@ module Api
 
       private
       def annotation_params
-        params.require(:data).permit(:description, :latitude, :longitude, :noted_at)
+        params.require(:annotation).permit(:description, :latitude, :longitude, :noted_at)
       end
     end
   end
