@@ -49,8 +49,7 @@ Sua facilidade em autenticar varios clientes e não ter a complexidade de armaze
 
 3 - Anotações de Campo
 
-Foi disponibilizado endpoints para listar todas as anotações por usuário, cadastro de anotações avulsas e cadastro de anotações em lote.
-O cadastro de anotações em lote foi implementado para a necessidade de sincronização dos usuários com todas suas anotações marcadas e não enviadas para a api por motivos de conectividade e afins.
+Foi disponibilizado endpoints para listar todas as anotações por usuário e cadastro de anotações.
 
 ## Configuraçes do ambiente
 
@@ -102,7 +101,7 @@ O cadastro de anotações em lote foi implementado para a necessidade de sincron
 * O Projeto estara disponivel em `http://localhost:3000`
 
 ### Cobertura de testes:
-![image](https://user-images.githubusercontent.com/25302676/62994251-4d3c8e80-be31-11e9-9b01-a3a189e0bc8e.png)
+![image](images/coverage.png)
 
 
 

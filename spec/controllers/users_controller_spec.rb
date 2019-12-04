@@ -19,6 +19,11 @@ RSpec.describe UsersController, type: :controller do
     expect(response).to be_successful
   end
 
+  it '#destroy' do
+    user = create(:user)
+    expect { get :destroy, params: { id: user.id } }.to change { User.all.size }
+  end
+
   describe '#create' do
     it '#create when params is valid' do
       user = build(:user).attributes
