@@ -4,6 +4,7 @@ module Api
   module V1
     class AnnotationsController < ApplicationController
       protect_from_forgery with: :null_session
+      skip_before_action :verify_authenticity_token
       before_action :authorize_request
 
       def index
@@ -21,7 +22,7 @@ module Api
 
       private
       def annotation_params
-        params.require(:annotation).permit(:description, :latitude, :longitude, :noted_at)
+        params.require(:data).permit(:description, :latitude, :longitude, :noted_at)
       end
     end
   end
