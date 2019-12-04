@@ -4,5 +4,6 @@ class Annotation < ApplicationRecord
   validates :description, presence: true
   validates :longitude, presence: true
   validates :latitude, presence: true
+  validates :noted_at, presence: true
   validates :user, presence: true
 end
