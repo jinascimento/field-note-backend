@@ -9,6 +9,7 @@ module Users
 
     def call
       @user.update!(@attributes)
+      @user
     end
   end
 end

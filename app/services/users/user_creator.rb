@@ -8,6 +8,7 @@ module Users
 
     def call
       @user = User.create!(@attributes)
+      @user
     end
   end
 end
